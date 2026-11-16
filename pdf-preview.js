@@ -1,10 +1,7 @@
-import * as pdfjsLib from "/node_modules/pdfjs-dist/build/pdf.mjs";
-
-pdfjsLib.GlobalWorkerOptions.workerSrc = "/node_modules/pdfjs-dist/build/pdf.worker.mjs";
-
 let pdfDocument = null;
 let loadingTask = null;
 let renderTask = null;
+let pdfjsModulePromise = null;
 let pageNumber = 1;
 let zoom = 1;
 let generation = 0;
@@ -18,6 +15,20 @@ const pageLabel = document.querySelector("#pdf-page-label");
 const zoomLabel = document.querySelector("#pdf-zoom-label");
 const previousButton = document.querySelector("#pdf-previous-page");
 const nextButton = document.querySelector("#pdf-next-page");
+
+function loadPdfJs() {
+  if (!pdfjsModulePromise) {
+    const pdfModuleUrl = new URL("/node_modules/pdfjs-dist/build/pdf.mjs", window.location.origin);
+    pdfjsModulePromise = import(pdfModuleUrl.href).then((pdfjsLib) => {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
+        "/node_modules/pdfjs-dist/build/pdf.worker.mjs",
+        window.location.origin,
+      ).href;
+      return pdfjsLib;
+    });
+  }
+  return pdfjsModulePromise;
+}
 
 function updateControls() {
   if (!pdfDocument) return;
@@ -93,6 +104,8 @@ export async function open(blob) {
   emptyState.textContent = "Preparing PDF page…";
 
   const data = new Uint8Array(await blob.arrayBuffer());
+  if (activeGeneration !== generation) return;
+  const pdfjsLib = await loadPdfJs();
   if (activeGeneration !== generation) return;
   loadingTask = pdfjsLib.getDocument({ data, useSystemFonts: true });
   pdfDocument = await loadingTask.promise;

@@ -169,6 +169,14 @@ test("serves the PDF.js renderer and worker with an ES module content type", asy
   assert.match(worker.headers.get("content-type"), /^text\/javascript/);
 });
 
+test("loads PDF.js in the browser without bundling its root-relative runtime URLs", async () => {
+  const { readFile } = await import("node:fs/promises");
+  const source = await readFile(new URL("./pdf-preview.js", import.meta.url), "utf8");
+  assert.match(source, /import\(pdfModuleUrl\.href\)/);
+  assert.match(source, /new URL\("\/node_modules\/pdfjs-dist\/build\/pdf\.mjs", window\.location\.origin\)/);
+  assert.doesNotMatch(source, /^import \* as pdfjsLib from "\/node_modules/m);
+});
+
 test("does not expose local environment or project files through static hosting", async () => {
   for (const pathname of ["/.env", "/server.mjs", "/package.json", "/PROJECT_REPORT_FOR_GEMINI.md"]) {
     const response = await fetch(`${baseUrl}${pathname}`);
