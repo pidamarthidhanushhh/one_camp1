@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: campus-mvp-demo
+    runtime: node
+    region: singapore
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: demo

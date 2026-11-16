@@ -1,0 +1,49 @@
+services:
+  - type: web
+    name: campus-pilot
+    runtime: node
+    region: singapore
+    plan: 1c-2g
+    buildCommand: npm ci
+    preDeployCommand: npm run db:migrate
+    startCommand: npm run start:production
+    healthCheckPath: /
+    disk:
+      name: campus-private-files
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: campus-postgres
+          property: connectionString
+      - key: DATABASE_POOL_SIZE
+        value: "5"
+      - key: DATABASE_SSL
+        value: "true"
+      - key: DATABASE_SSL_REJECT_UNAUTHORIZED
+        value: "false"
+      - key: PRIVATE_STORAGE_DIR
+        value: /var/data/private
+      - key: OIDC_ISSUER
+        value: https://accounts.google.com
+      - key: OIDC_ALLOWED_EMAIL_DOMAINS
+        value: matrusri.edu.in
+      - key: OIDC_SETUP_PENDING
+        value: "true"
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: CAMPUS_ORGANIZATION_ID
+        value: 2c4cebc7-5295-41eb-bdce-c932e506d452
+      - key: CAMPUS_ORGANIZATION_NAME
+        value: Matrusri Engineering College
+
+databases:
+  - name: campus-postgres
+    databaseName: campus
+    user: campus_app
+    postgresMajorVersion: "18"
+    region: singapore
+    plan: 0.1c-256mb

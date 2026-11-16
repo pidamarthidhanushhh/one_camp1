@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7f2">
+    <meta name="description" content="Find, share, and study from trusted notes made for your campus.">
+    <title>Campus — your study space</title>
+    <link rel="stylesheet" href="styles.css?v=campus-palette-20261102">
+  </head>
+  <body>
+    <main class="login-page" id="login-page">
+      <header class="login-topbar">
+        <a class="brand login-brand" href="#" aria-label="Campus home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32"><path d="M5 8.5 16 3l11 5.5v14L16 29 5 22.5z"/><path d="m5 8.5 11 6 11-6M16 14.5V29"/></svg>
+          </span>
+          <span>campus<span class="brand-period">.</span></span>
+        </a>
+        <div class="login-header-actions">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+            <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.4A8.4 8.4 0 0 1 8.6 3.8 8.5 8.5 0 1 0 20.2 15.4z"/></svg>
+            <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+            <span class="theme-toggle-label">Dark mode</span>
+          </button>
+          <span class="login-campus-label"><span class="status-dot"></span> MATRUSRI ENGINEERING COLLEGE</span>
+        </div>
+      </header>
+      <div class="login-layout">
+        <section class="login-welcome">
+          <p class="eyebrow"><span class="sun-mark">✳</span> YOUR CAMPUS, IN ONE PLACE</p>
+          <h1>Good notes.<br>Good people.<br><em>One study space.</em></h1>
+          <p class="login-welcome-copy">Find the resources your classmates trust, share what helped you, and make your next study session count.</p>
+          <div class="login-benefits">
+            <div><span class="login-benefit-icon">✦</span><span><strong>Made for your courses</strong><small>Explore resources by department, year, semester, and subject.</small></span></div>
+            <div><span class="login-benefit-icon">▦</span><span><strong>Learn together</strong><small>Join faculty-led Crates and keep class materials close.</small></span></div>
+          </div>
+          <div class="login-illustration" aria-hidden="true">
+            <div class="login-orbit orbit-one"></div><div class="login-orbit orbit-two"></div>
+            <div class="login-note-card"><span>YOUR NEXT STUDY SESSION</span><strong>Small steps,<br>big ideas.</strong><i></i><i></i><i></i><b>✦</b></div>
+            <span class="login-star star-a">✳</span><span class="login-star star-b">✦</span>
+          </div>
+        </section>
+
+        <section class="login-options" aria-labelledby="login-heading">
+          <div class="login-section-heading">
+            <span class="modal-eyebrow">WELCOME TO CAMPUS</span>
+            <h2 id="login-heading">Welcome back</h2>
+            <p>Choose your account type, then sign in.</p>
+          </div>
+          <div class="login-card-grid">
+            <form class="login-card" id="login-form">
+              <div class="login-role-toggle" role="group" aria-label="Choose account type">
+                <button class="login-role-button active" type="button" data-login-role="student" aria-pressed="true">Student</button>
+                <button class="login-role-button" type="button" data-login-role="admin" aria-pressed="false">Faculty / Admin</button>
+              </div>
+              <span class="login-card-icon student-icon" id="login-role-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20v-1.5a7.5 7.5 0 0 1 15 0V20z"/></svg>
+              </span>
+              <span class="login-card-eyebrow" id="login-role-eyebrow">FOR STUDENTS</span>
+              <h3 id="login-role-title">Student sign in</h3>
+              <p id="login-role-description">Discover notes, save resources, and join your class Crates.</p>
+              <label class="login-field"><span id="login-email-label">College email</span>
+                <input id="login-email" type="email" name="email" autocomplete="username" value="student@matrusri.edu.in" required>
+              </label>
+              <label class="login-field">Password
+                <span class="login-password-control">
+                  <input id="login-password" type="password" name="password" autocomplete="current-password" value="CampusStudent2026!" required>
+                  <button class="password-visibility-button" id="toggle-password-visibility" type="button" aria-label="Show password" aria-pressed="false">Show</button>
+                </span>
+              </label>
+              <button class="button button-dark login-submit" id="login-submit" type="submit">Sign in as student <span aria-hidden="true">→</span></button>
+              <p class="login-feedback" id="login-feedback" role="status" aria-live="polite" hidden></p>
+              <div class="demo-credentials"><strong id="demo-credential-title">Student demo credentials</strong><span id="demo-credential-email">student@matrusri.edu.in</span><span id="demo-credential-password">CampusStudent2026!</span></div>
+            </form>
+          </div>
+          <p class="login-demo-notice"><strong>Prototype demo sign-in.</strong> These sample credentials only switch the local interface; they do not authenticate or protect data. Don’t use real passwords here.</p>
+        </section>
+      </div>
+      <footer class="login-footer"><span>Made for students, by students <span class="footer-heart">♥</span></span><span>Free to learn. Free to share.</span></footer>
+    </main>
+
+    <div class="app-shell" id="app-shell" hidden>
+      <a class="skip-to-content" href="#main-content">Skip to main content</a>
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#" aria-label="Campus home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32"><path d="M5 8.5 16 3l11 5.5v14L16 29 5 22.5z"/><path d="m5 8.5 11 6 11-6M16 14.5V29"/></svg>
+          </span>
+          <span>campus<span class="brand-period">.</span></span>
+        </a>
+
+        <div class="workspace-label" id="sidebar-workspace-label">YOUR SPACE</div>
+        <nav class="primary-nav">
+          <button class="nav-link student-nav-link active" data-view="discover">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4 4"/></svg>
+            <span>Discover</span>
+          </button>
+          <button class="nav-link student-nav-link" data-view="planner">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M8 14h3m-3 4h7"/></svg>
+            <span>Study planner</span>
+          </button>
+          <button class="nav-link student-nav-link" data-view="saved">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.8A1.8 1.8 0 0 1 7.8 3h8.4A1.8 1.8 0 0 1 18 4.8V21l-6-3.8L6 21z"/></svg>
+            <span>My library</span>
+            <span class="nav-count" id="saved-count">0</span>
+          </button>
+          <button class="nav-link student-nav-link" data-view="uploads">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>
+            <span>My uploads</span>
+          </button>
+          <button class="nav-link student-nav-link raze-nav-link" data-view="raze">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.5 6.7 6.7 2.5-6.7 2.5-2.5 6.7-2.5-6.7L2.8 12l6.7-2.5z"/><path d="m19 2 .8 2.2L22 5l-2.2.8L19 8l-.8-2.2L16 5l2.2-.8z"/></svg>
+            <span>Raze AI</span>
+          </button>
+          <button class="nav-link crates-nav-link" data-view="crates">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><path d="m3 7.5 9 4.5 9-4.5M12 12v9"/></svg>
+            <span>Crates</span>
+          </button>
+          <button class="nav-link admin-nav-link" data-view="admin" aria-label="Admin dashboard" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5h16M6.5 16V10m5.5 6V5m5.5 11v-4"/></svg>
+            <span>Admin</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="campus-card">
+            <div class="campus-card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 9 9-5 9 5-9 5zM6 11v6l6 3 6-3v-6m3-2v7"/></svg></div>
+            <p class="campus-card-title">Made for your campus</p>
+            <p class="campus-card-copy">Good notes travel further when we share them.</p>
+            <button class="text-button" id="invite-button">Invite a classmate <span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="profile-menu-wrap">
+            <button class="profile-button" id="profile-button" type="button" aria-label="Open account menu" aria-haspopup="true" aria-controls="account-menu" aria-expanded="false">
+              <span class="avatar avatar-user" id="profile-avatar">ST</span>
+              <span class="profile-copy"><strong id="profile-name">Student Demo</strong><small id="profile-role">Student account</small></span>
+              <svg class="profile-more" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="account-menu" id="account-menu" aria-label="Account options" hidden>
+        <div class="account-menu-heading"><span class="avatar avatar-user" id="account-menu-avatar">ST</span><span><strong id="account-menu-name">Student Demo</strong><small id="account-menu-role">Student account</small></span></div>
+        <div class="account-menu-actions">
+          <button type="button" data-account-action="discover" data-account-role="student">Home / Discover</button>
+          <button type="button" data-account-action="saved" data-account-role="student">My library</button>
+          <button type="button" data-account-action="uploads" data-account-role="student">My uploads</button>
+          <button type="button" data-account-action="crates" data-account-role="student">My Crates</button>
+          <button type="button" data-account-action="notifications" data-account-role="student">Notification centre</button>
+          <button type="button" data-account-action="admin" data-account-role="admin">Admin dashboard</button>
+          <button type="button" data-account-action="crates" data-account-role="admin">Manage Crates</button>
+        </div>
+        <button class="account-sign-out" id="open-sign-out" type="button">Sign out <span aria-hidden="true">↗</span></button>
+      </section>
+
+      <main class="main-content" id="main-content" tabindex="-1">
+        <header class="topbar">
+        <div class="topbar-leading">
+          <button class="home-button" id="home-button" type="button" aria-label="Go to Home / Discover">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>
+            <span>Home</span>
+          </button>
+          <div class="breadcrumbs"><span id="workspace-label">Student space</span><span class="crumb-slash">/</span><strong id="breadcrumb-current">Discover</strong></div>
+        </div>
+        <div class="topbar-actions">
+          <span class="term-pill"><span class="status-dot"></span> Fall semester</span>
+          <button class="theme-toggle workspace-theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+            <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.4A8.4 8.4 0 0 1 8.6 3.8 8.5 8.5 0 1 0 20.2 15.4z"/></svg>
+            <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+            <span class="theme-toggle-label">Dark mode</span>
+          </button>
+          <div class="notification-menu">
+            <button class="icon-button notification-button" id="notification-button" type="button" aria-label="Notifications" aria-controls="notification-panel" aria-expanded="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9m-8 12h4"/></svg>
+              <span class="notification-dot" id="notification-dot" hidden></span>
+              <span class="notification-count" id="notification-count" hidden></span>
+            </button>
+            <section class="notification-panel" id="notification-panel" aria-label="Notification centre" hidden>
+              <div class="notification-panel-heading">
+                <div><span class="modal-eyebrow">CAMPUS UPDATES</span><h2>Notification centre</h2><p>News and updates to your saved materials.</p></div>
+                <button class="notification-mark-all" id="mark-all-notifications-read" type="button">Mark all read</button>
+              </div>
+              <div class="notification-list" id="notification-list" aria-live="polite"></div>
+            </section>
+          </div>
+          <button class="topbar-account-button" id="topbar-profile-button" type="button" aria-label="Open account menu" aria-haspopup="true" aria-controls="account-menu" aria-expanded="false">
+            <span class="avatar avatar-small" id="topbar-avatar">ST</span>
+          </button>
+        </div>
+      </header>
+
+        <div class="page-content">
+          <section class="welcome-row">
+            <div>
+              <p class="eyebrow"><span class="sun-mark">✳</span> YOUR CAMPUS, IN ONE PLACE</p>
+              <h1 id="page-title">A little more <em>in sync.</em></h1>
+              <p class="welcome-copy" id="page-subtitle">Find the notes, guides, and good advice your next study session needs.</p>
+            </div>
+            <button class="button button-dark upload-trigger">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14v5a2 2 0 0 0 2 2h14"/></svg>
+              Share a resource
+            </button>
+          </section>
+
+          <section class="learning-dashboard" id="learning-dashboard" aria-label="Your learning progress">
+            <div class="learning-dashboard-top" id="learning-dashboard-top"></div>
+            <div class="learning-dashboard-bottom">
+              <section class="subject-progress-panel" aria-labelledby="subject-progress-heading">
+                <div class="learning-panel-heading"><div><span class="modal-eyebrow">YOUR LEARNING</span><h2 id="subject-progress-heading">Progress by subject</h2></div><button class="text-button" type="button" data-view="planner">Open planner →</button></div>
+                <div class="subject-progress-list" id="subject-progress-list"></div>
+              </section>
+              <section class="recent-activity-panel" aria-labelledby="recent-activity-heading">
+                <div class="learning-panel-heading"><div><span class="modal-eyebrow">RECENT ACTIVITY</span><h2 id="recent-activity-heading">Small steps add up</h2></div></div>
+                <div class="learning-activity-list" id="learning-activity-list"></div>
+              </section>
+            </div>
+          </section>
+
+          <section class="search-panel" aria-label="Search study materials">
+            <div class="search-input-wrap">
+              <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4 4"/></svg>
+              <input id="search-input" type="search" autocomplete="off" placeholder="Search a subject, course, or topic..." aria-label="Search a subject, course, or topic" aria-keyshortcuts="/">
+              <kbd>/</kbd>
+            </div>
+            <div class="search-divider"></div>
+            <button class="filter-button" id="filter-button" type="button" aria-controls="curriculum-filter-panel" aria-expanded="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M7 12h10m-7 5h4"/></svg>
+              <span>College filters</span>
+              <span class="filter-caret" aria-hidden="true">⌄</span>
+            </button>
+          </section>
+          <section class="curriculum-filter-panel" id="curriculum-filter-panel" aria-label="Matrusri college filters" hidden>
+            <div class="college-filter-heading"><span class="college-filter-dot"></span><strong>Matrusri Engineering College</strong><span>Current college</span></div>
+            <div class="curriculum-filter-grid">
+              <label class="curriculum-filter-field">Department
+                <select id="filter-department"><option value="">All departments</option></select>
+              </label>
+              <label class="curriculum-filter-field">Year
+                <select id="filter-year"><option value="">All years</option></select>
+              </label>
+              <label class="curriculum-filter-field">Section
+                <select id="filter-section"><option value="">All sections</option></select>
+              </label>
+              <label class="curriculum-filter-field">Semester
+                <select id="filter-semester"><option value="">All semesters</option></select>
+              </label>
+              <label class="curriculum-filter-field">Subject
+                <select id="filter-subject"><option value="">All subjects</option></select>
+              </label>
+            </div>
+            <p class="curriculum-filter-note">Year 4 semester and non-CSE section mappings are pending college confirmation.</p>
+          </section>
+          <section class="hero-banner">
+            <div class="hero-copy">
+              <span class="hero-kicker"><span class="hero-kicker-dot"></span> A BETTER WAY TO STUDY</span>
+              <h2>Someone’s already<br>made the <em>perfect notes.</em></h2>
+              <p>Find them. Learn from them. Pass them on.</p>
+              <button class="hero-button" id="explore-button">Explore top resources <span aria-hidden="true">→</span></button>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <div class="art-sun"></div>
+              <div class="paper paper-back"><span></span><i></i><i></i><i></i></div>
+              <div class="paper paper-front">
+                <span class="paper-label">WEEK 04 · BIOLOGY</span>
+                <div class="paper-heading">The cell<br>cycle</div>
+                <div class="cell-diagram"><span class="cell-core"></span><i></i><i></i><i></i><i></i></div>
+                <div class="paper-lines"><i></i><i></i><i></i></div>
+                <div class="paper-sticker">A+<span>notes</span></div>
+              </div>
+              <div class="art-star star-one">✳</div>
+              <div class="art-star star-two">✦</div>
+              <div class="art-loop"></div>
+            </div>
+            <div class="hero-decoration">SHARE<br>WHAT<br>YOU KNOW</div>
+          </section>
+
+          <section class="resource-section" id="resource-section">
+            <div class="section-heading">
+              <div>
+                <div class="section-title-row"><h2 id="resource-heading">Picked for your next study session</h2><span class="live-pill"><span></span> FACULTY REVIEWED · TOP RATED</span></div>
+                <p id="resource-description">Faculty-reviewed resources rank first; student ratings add another signal.</p>
+              </div>
+            <button class="sort-button" id="sort-button" type="button" aria-pressed="false" aria-label="Sort resources by faculty review and rating">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14m0 0-4-4m4 4 4-4m4-6-4-4-4 4m4-4v14"/></svg>
+                <span>Faculty picks</span>
+                <span class="filter-caret">⌄</span>
+              </button>
+            </div>
+            <div class="resource-feed-toolbar" id="resource-feed-toolbar">
+              <div class="resource-feed-switch" role="group" aria-label="Choose materials to browse">
+                <button class="resource-feed-option active" type="button" data-resource-feed="suggested" aria-pressed="true">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>
+                  Suggested
+                </button>
+                <button class="resource-feed-option" type="button" data-resource-feed="new" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14m-7-7h14"/></svg>
+                  New uploads
+                </button>
+              </div>
+              <span class="resource-feed-hint" id="resource-feed-hint">Picked using ratings and faculty reviews</span>
+            </div>
+            <div class="resource-department-filters" id="resource-department-filters" role="group" aria-label="Filter materials by department">
+              <span class="resource-department-label">Browse by department</span>
+              <button class="resource-department-option active" type="button" data-department-feed="all" aria-pressed="true">All</button>
+              <button class="resource-department-option" type="button" data-department-feed="cse" aria-pressed="false">CSE</button>
+              <button class="resource-department-option" type="button" data-department-feed="data-science" aria-pressed="false">Data Science</button>
+              <button class="resource-department-option" type="button" data-department-feed="eee" aria-pressed="false">EEE</button>
+              <button class="resource-department-option" type="button" data-department-feed="ece" aria-pressed="false">ECE</button>
+              <button class="resource-department-option" type="button" data-department-feed="mech" aria-pressed="false">Mech</button>
+              <button class="resource-department-option" type="button" data-department-feed="civil" aria-pressed="false">Civil</button>
+            </div>
+            <div class="results-toolbar"><span id="resource-result-count" role="status" aria-live="polite"></span><div class="active-filter-chips" id="active-filter-chips"></div><button class="clear-filters-button" id="clear-filters" type="button" hidden>Clear filters</button></div>
+            <div class="content-layout">
+              <div class="resource-grid" id="resource-grid" aria-live="polite"></div>
+              <aside class="right-rail">
+                <div class="trust-note"><span class="trust-check">✓</span><p><strong>Good resources, better together.</strong><br>Community ratings help the best notes find their way to the top.</p></div>
+              </aside>
+            </div>
+          </section>
+          <section class="collection-workspace library-workspace" id="library-view" aria-label="My library" hidden>
+            <header class="collection-hero library-hero">
+              <div class="collection-hero-copy"><span class="collection-kicker">YOUR STUDY SHELF</span><h2>My library</h2><p>Everything you’ve saved, organized and ready for your next study session.</p></div>
+              <div class="collection-hero-art library-art" aria-hidden="true"><span>▤</span><i></i><i></i><i></i></div>
+            </header>
+            <div class="collection-stats" id="library-stats"></div>
+            <div class="collection-toolbar library-toolbar"><div class="collection-tabs" role="group" aria-label="Filter library resources"><button type="button" class="collection-tab active" data-library-filter="all">All saved</button><button type="button" class="collection-tab" data-library-filter="recent">Recently opened</button></div><label class="collection-search"><span class="sr-only">Search your library</span><input id="library-search" type="search" placeholder="Search your saved resources…"><span>⌕</span></label></div>
+            <div class="collection-results-label" id="library-results-label"></div>
+            <div class="resource-grid collection-resource-grid" id="library-resource-grid" aria-live="polite"></div>
+          </section>
+          <section class="collection-workspace uploads-workspace" id="uploads-view" aria-label="My uploads" hidden>
+            <header class="collection-hero uploads-hero">
+              <div class="collection-hero-copy"><span class="collection-kicker">SHARE WHAT YOU KNOW</span><h2>My uploads</h2><p>Follow each resource from upload through review, publication, and classroom use.</p></div>
+              <button class="button button-dark upload-trigger" type="button">＋ Share a resource</button>
+            </header>
+            <div class="collection-stats" id="upload-stats"></div>
+            <div class="collection-toolbar uploads-toolbar"><div class="collection-tabs" role="group" aria-label="Filter uploads by review status"><button type="button" class="collection-tab active" data-upload-filter="all">All uploads</button><button type="button" class="collection-tab" data-upload-filter="pending">In review</button><button type="button" class="collection-tab" data-upload-filter="approved">Published</button><button type="button" class="collection-tab" data-upload-filter="changes_requested">Needs changes</button></div><span class="upload-process-note"><span>●</span> Review status is kept up to date</span></div>
+            <div class="collection-results-label" id="upload-results-label"></div>
+            <div class="resource-grid collection-resource-grid" id="upload-resource-grid" aria-live="polite"></div>
+          </section>
+          <section class="planner-view" id="planner-view" aria-label="Study planner" hidden>
+            <div class="planner-heading">
+              <div><span class="modal-eyebrow">MAKE SPACE TO LEARN</span><h2>Study planner</h2><p>Turn a big course into small, doable study sessions.</p></div>
+              <div class="planner-month-control"><button class="planner-month-step" type="button" id="planner-prev-month" aria-label="Previous month">‹</button><strong id="planner-month-label"></strong><button class="planner-month-step" type="button" id="planner-next-month" aria-label="Next month">›</button><button class="button button-light" type="button" id="planner-today">Today</button></div>
+            </div>
+            <div class="planner-layout">
+              <section class="planner-calendar-card" aria-label="Study calendar">
+                <div class="planner-calendar-weekdays" aria-hidden="true"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+                <div class="planner-calendar-grid" id="planner-calendar-grid" role="grid" aria-label="Calendar days"></div>
+              </section>
+              <aside class="planner-side-cards">
+                <section class="planner-streak-card" id="planner-streak-card"></section>
+                <section class="planner-assistant-card"><span class="planner-card-icon purple">✦</span><div><strong>Study plan assistant</strong><small>Build a gentle three-day routine from your study materials.</small></div><button class="button button-purple" type="button" id="planner-generate-plan">Make a 3-day plan</button></section>
+                <section class="planner-quick-card"><span class="planner-card-icon blue">＋</span><div><strong>Quick actions</strong><small>Add one session or make a three-step plan.</small></div><button class="button button-light" type="button" id="planner-quick-add">Add a study task</button></section>
+              </aside>
+            </div>
+            <section class="planner-tasks-card">
+              <div class="planner-tasks-heading"><div><span class="modal-eyebrow" id="planner-task-date-label">TODAY</span><h3>Tasks for <span id="planner-task-date-title"></span></h3></div><div class="planner-task-summary"><span id="planner-completion-label">0% complete</span><button class="text-button" type="button" id="planner-clear-completed" hidden>Clear completed</button></div></div>
+              <div class="planner-completion-track"><span id="planner-completion-bar"></span></div>
+              <div class="planner-task-list" id="planner-task-list"></div>
+              <details class="planner-add-task" id="planner-add-task-details"><summary>＋ Add task</summary>
+                <form id="planner-task-form" class="planner-task-form">
+                  <label>Task title<input id="planner-task-title" type="text" maxlength="120" placeholder="e.g. Review cell division notes" required></label>
+                  <label>Study date<input id="planner-task-date" type="date" required></label>
+                  <label>Course or subject<input id="planner-task-subject" type="text" maxlength="80" placeholder="e.g. Biology"></label>
+                  <label>Time estimate<select id="planner-task-duration"><option value="20">20 minutes</option><option value="30">30 minutes</option><option value="40" selected>40 minutes</option><option value="60">60 minutes</option><option value="90">90 minutes</option></select></label>
+                  <label class="planner-task-description-field">Description<textarea id="planner-task-description" maxlength="320" rows="2" placeholder="What will you focus on?"></textarea></label>
+                  <button class="button button-dark" type="submit">Save task</button>
+                </form>
+              </details>
+            </section>
+          </section>
+          <section class="raze-page" id="raze-view" aria-label="Raze AI study workspace" hidden>
+            <div class="raze-center-stage">
+              <div class="raze-empty-state">
+                <span class="raze-empty-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2.8 2.5 6.7 6.7 2.5-6.7 2.5-2.5 6.7-2.5-6.7L2.8 12l6.7-2.5z"/><path d="m19 2 .8 2.2L22 5l-2.2.8L19 8l-.8-2.2L16 5l2.2-.8z"/></svg></span>
+                <h2>Where should we begin?</h2>
+                <p>Ask a question, explore a recent PDF, or make a study set from your notes.</p>
+              </div>
+              <div class="raze-chat-section" aria-label="Ask Raze">
+                <div class="raze-chat-host" id="raze-chat-host"></div>
+                <div class="raze-prompt-suggestions" aria-label="Suggested questions">
+                  <button type="button" data-raze-prompt="Help me find the best campus material for what I’m studying."><span aria-hidden="true">⌕</span> Find study material</button>
+                  <button type="button" data-raze-prompt="Explain the hardest idea in my selected study material in simple steps."><span aria-hidden="true">✎</span> Explain a concept</button>
+                  <button type="button" data-raze-prompt="Help me make a focused study plan for the next 30 minutes."><span aria-hidden="true">◷</span> Make a study plan</button>
+                </div>
+              </div>
+            </div>
+            <section class="raze-selected-card" id="raze-selected-resource" aria-label="Selected study material" hidden></section>
+            <section class="raze-practice-section" id="raze-practice-section" aria-label="AI practice activities" hidden></section>
+            <section class="raze-saved-artifacts" id="raze-saved-artifacts" aria-label="Saved study artifacts" hidden></section>
+            <section class="raze-recent-section" id="raze-recent-section" aria-label="Recently viewed PDFs" hidden>
+              <div class="raze-recent-heading"><div><span class="raze-section-kicker">YOUR STUDY HISTORY</span><h3>Pick up where you left off</h3></div><span>RECENTLY VIEWED</span></div>
+              <div class="raze-recent-list" id="raze-recent-list"></div>
+            </section>
+            <section class="raze-search-card" aria-label="Search campus materials for Raze">
+              <label for="raze-material-query">What are you studying?</label>
+              <div class="raze-search-control">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4 4"/></svg>
+                <input id="raze-material-query" type="search" autocomplete="off" placeholder="Try “operating systems”, “Python”, or a topic…">
+                <span>Campus materials</span>
+              </div>
+              <p>Searches published Matrusri resources and approved uploads. Raze won’t invent a PDF if one isn’t available.</p>
+              <div class="raze-search-results" id="raze-material-results" aria-live="polite"></div>
+            </section>
+            <p class="raze-honesty-note">AI-generated study aids can make mistakes. Check important facts against your course materials.</p>
+          </section>
+          <section class="crates-page" id="crates-view" hidden aria-label="Crates">
+            <div class="crates-intro">
+              <span class="crates-icon" aria-hidden="true">▦</span>
+              <div><span class="modal-eyebrow">FACULTY-LED CLASSROOMS</span><h2>Crates</h2><p>Create a curriculum crate or join one with your faculty’s code.</p></div>
+              <span class="prototype-pill">LOCAL PROTOTYPE</span>
+            </div>
+            <div class="crate-actions-grid">
+              <form class="crate-join-card" id="join-crate-form">
+                <span class="modal-eyebrow">STUDENT ACCESS</span>
+                <h3>Join a crate</h3>
+                <p>Enter the code shared by your faculty to see its materials.</p>
+                <div class="crate-code-row"><label class="visually-hidden" for="crate-code">Crate code</label><input id="crate-code" type="text" placeholder="e.g. MEC-CSE2" autocomplete="off" required><button class="button button-dark" type="submit">Join</button></div>
+                <p class="crate-form-status" id="join-crate-status" role="status" aria-live="polite"></p>
+              </form>
+              <details class="crate-create-card">
+                <summary><span><span class="modal-eyebrow">FACULTY / ADMIN DEMO</span><strong>Create a crate</strong><small>Choose the class that should receive your materials.</small></span><span class="create-crate-plus" aria-hidden="true">+</span></summary>
+                <form id="create-crate-form">
+                  <label class="field-label">Crate name<input id="crate-title" type="text" placeholder="e.g. CSE · Year 2 · Software Engineering" required maxlength="100"></label>
+                  <div class="crate-form-grid">
+                    <label class="field-label">Department<select id="crate-department" required></select></label>
+                    <label class="field-label">Year<select id="crate-year" required></select></label>
+                    <label class="field-label">Section<select id="crate-section" required></select></label>
+                    <label class="field-label">Semester<select id="crate-semester"></select></label>
+                  </div>
+                  <label class="field-label">About this crate<textarea id="crate-description" rows="2" placeholder="What materials will students find here?"></textarea></label>
+                  <button class="button button-dark" type="submit">Create crate and get code <span>→</span></button>
+                  <p class="crate-form-status" id="create-crate-status" role="status" aria-live="polite"></p>
+                </form>
+              </details>
+            </div>
+            <div class="crate-code-help">Demo join code: <button type="button" class="inline-code-button" id="fill-demo-crate-code">MEC-CSE2</button><span>· Crates are saved only in this browser in this prototype.</span></div>
+            <section class="crate-list-section"><div class="crate-list-heading"><div><h3>Available crates</h3><p>Class materials organized by department and year.</p></div></div><div class="crate-list" id="crate-list"></div></section>
+            <section class="crate-materials-section" id="crate-materials-section" hidden></section>
+          </section>
+          <section class="admin-page" id="admin-view" hidden aria-label="Admin dashboard">
+            <div class="admin-welcome">
+              <div><span class="modal-eyebrow">CAMPUS ADMINISTRATION · DEMO</span><h2>Keep your study space thriving.</h2><p>Review shared resources, post updates, and keep faculty materials organized.</p></div>
+              <button class="button button-dark" type="button" id="admin-open-crates">Manage faculty Crates <span aria-hidden="true">→</span></button>
+            </div>
+            <div class="admin-stat-grid" id="admin-stat-grid" aria-live="polite"></div>
+            <div class="admin-workspace-grid">
+              <section class="admin-panel">
+                <div class="admin-panel-heading"><div><span class="modal-eyebrow">QUALITY &amp; SAFETY</span><h3>Resource review queue</h3><p>Check new student uploads before they appear in Discover.</p></div><span class="admin-queue-count" id="review-queue-count">0 pending</span></div>
+                <div class="admin-review-list" id="admin-review-list"></div>
+              </section>
+              <section class="admin-panel announcement-admin-panel">
+                <div class="admin-panel-heading"><div><span class="modal-eyebrow">CAMPUS COMMUNICATION</span><h3>Post an announcement</h3><p>Share a concise update with signed-in students.</p></div></div>
+                <form id="announcement-form" class="announcement-form">
+                  <label class="field-label">Headline<input name="title" type="text" maxlength="90" placeholder="e.g. Library hours this week" required></label>
+                  <label class="field-label">Message<textarea name="body" rows="3" maxlength="500" placeholder="Write the update students need to know." required></textarea></label>
+                  <button class="button button-dark" type="submit">Publish campus update <span aria-hidden="true">→</span></button>
+                  <p class="crate-form-status" id="announcement-status" role="status" aria-live="polite"></p>
+                </form>
+                <div class="admin-announcement-list" id="admin-announcement-list"></div>
+              </section>
+            </div>
+            <p class="admin-demo-notice">Prototype controls are stored in this browser only. They are not server-enforced and must not be used for real student data or institutional moderation.</p>
+          </section>
+          <footer class="page-footer"><span>Made for students, by students <span class="footer-heart">♥</span></span><span>Free to learn. Free to share.</span></footer>
+        </div>
+      </main>
+    </div>
+
+    <aside class="assistant-widget" id="assistant-widget" aria-label="Raze assistant" hidden>
+      <section class="study-buddy-card" id="study-buddy-panel" aria-label="Chat with Raze" hidden>
+        <div class="buddy-header">
+          <span class="buddy-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 13.9 9l5.6 1.9-5.6 1.9-1.9 5.7-1.9-5.7-5.6-1.9L10.1 9z"/><path d="m19 15 .9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg></span>
+          <div><h3>Raze</h3><span class="online-label"><i></i> YOUR STUDY ASSISTANT</span></div>
+          <button class="icon-button assistant-close" id="assistant-close" aria-label="Close Raze chat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+        </div>
+        <div class="chat-context" id="chat-context" aria-live="polite">
+          <span class="chat-context-dot" aria-hidden="true"></span>
+          <span>No document connected</span>
+        </div>
+        <div class="chat-messages" id="chat-messages" role="log" aria-label="Conversation with Raze" aria-live="polite" aria-relevant="additions"></div>
+        <p class="chat-status" id="chat-status" role="status" aria-live="polite" hidden></p>
+        <form class="chat-form" id="chat-form">
+          <textarea id="chat-input" rows="2" maxlength="2000" placeholder="Ask a question about what you’re studying..." aria-label="Message Raze"></textarea>
+          <button type="submit" aria-label="Send message"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 3-7.5 18-3.6-7.9L2 9.5zM21 3 9.9 13.1"/></svg></button>
+        </form>
+        <p class="demo-note">AI responses can make mistakes. Check important information against your course materials.</p>
+      </section>
+      <button class="assistant-launcher" id="assistant-launcher" type="button" aria-label="Open Raze chat" aria-expanded="false" aria-controls="study-buddy-panel">
+        <svg class="launcher-sparkle" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8 14.5 9.5 21.2 12l-6.7 2.5L12 21.2l-2.5-6.7L2.8 12l6.7-2.5z"/><path d="m19 2 .8 2.2L22 5l-2.2.8L19 8l-.8-2.2L16 5l2.2-.8z"/></svg>
+        <span class="launcher-label">Raze</span>
+      </button>
+    </aside>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <dialog class="modal sign-out-dialog" id="sign-out-dialog" aria-labelledby="sign-out-title">
+      <div class="modal-card">
+        <div class="modal-heading">
+          <div><span class="modal-eyebrow">ACCOUNT</span><h2 id="sign-out-title">Sign out of Campus?</h2></div>
+          <button class="modal-close" id="close-sign-out" type="button" aria-label="Close dialog">×</button>
+        </div>
+        <p class="modal-description" id="sign-out-description">You can sign back in with your account details whenever you’re ready.</p>
+        <p class="sign-out-error" id="sign-out-error" role="alert" hidden></p>
+        <div class="modal-actions"><button class="button button-text" id="cancel-sign-out" type="button">Stay signed in</button><button class="button button-dark" id="confirm-sign-out" type="button">Sign out</button></div>
+      </div>
+    </dialog>
+
+    <dialog class="modal" id="upload-modal">
+      <form class="modal-card" id="upload-form">
+        <div class="modal-heading">
+          <div><span class="modal-eyebrow">GIVE YOUR NOTES A SECOND LIFE</span><h2>Share a resource</h2></div>
+          <button class="modal-close" type="button" data-close-modal aria-label="Close dialog">×</button>
+        </div>
+        <p class="modal-description">Add a useful study resource for your campus community. PDF analysis and indexing send document content to Google Gemini; upload only material you have permission to process.</p>
+        <label class="drop-zone" id="drop-zone">
+          <input id="file-input" type="file" accept=".pdf,application/pdf" hidden>
+          <span class="drop-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg></span>
+          <strong id="file-name">Choose a file or drag it here</strong>
+          <span>PDF · up to 12 MB · AI fills in editable suggestions</span>
+        </label>
+        <div class="analysis-status" id="analysis-status" role="status" aria-live="polite" hidden></div>
+        <div class="form-grid">
+          <label class="field-label">Resource title<input id="resource-title" type="text" placeholder="e.g. Biology 101 — midterm review" required></label>
+          <label class="field-label">Subject <span class="field-ai-hint" id="subject-ai-hint" hidden>✦ AI selected · editable</span><input id="resource-subject" type="text" placeholder="AI suggestion · e.g. Anatomy, Pharmacology, Data structures" required></label>
+          <label class="field-label full-field">Course or topic<input id="resource-course" type="text" placeholder="e.g. BIO 204 · Cell biology" required></label>
+          <label class="field-label">Department<select id="upload-department" required></select></label>
+          <label class="field-label">Year<select id="upload-year" required></select></label>
+          <label class="field-label">Section<select id="upload-section" required></select></label>
+          <label class="field-label">Semester<select id="upload-semester" required></select></label>
+          <label class="field-label full-field">Sharing terms
+            <select id="resource-license" required>
+              <option value="Personal study only">Personal study only</option>
+              <option value="CC BY 4.0">Creative Commons · CC BY 4.0</option>
+              <option value="CC BY-NC 4.0">Creative Commons · CC BY-NC 4.0</option>
+              <option value="Permission to share granted">I have permission to share</option>
+            </select>
+          </label>
+        </div>
+        <div class="upload-disclaimer"><span>✦</span> Choose the sharing terms you are allowed to grant. “Personal study only” does not grant permission to redistribute. AI fills in editable details; summaries are optional.</div>
+        <div class="modal-actions"><button class="button button-text" type="button" data-close-modal>Cancel</button><button class="button button-dark" id="submit-upload" type="submit">Add to my uploads <span>→</span></button></div>
+      </form>
+    </dialog>
+
+    <dialog class="modal detail-modal" id="detail-modal">
+      <div class="modal-card detail-modal-card">
+        <div class="modal-heading">
+          <div><span class="modal-eyebrow" id="detail-subject"></span><h2 id="detail-title"></h2></div>
+          <button class="modal-close" type="button" data-close-modal aria-label="Close dialog">×</button>
+        </div>
+        <div id="detail-content"></div>
+        <div class="modal-actions"><button class="button button-text" type="button" data-close-modal>Close</button><button class="button button-dark" id="detail-save-button" type="button">Save to my library <span>↗</span></button></div>
+      </div>
+    </dialog>
+
+    <script src="app.js?v=campus-palette-20261102"></script>
+  </body>
+</html>
