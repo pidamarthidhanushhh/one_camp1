@@ -1,0 +1,36 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/index.mjs": {
+      "includeFiles": [
+        "index.html",
+        "styles.css",
+        "app.js",
+        "pdf-preview.js",
+        "node_modules/pdfjs-dist/build/*.mjs"
+      ]
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/student",
+      "destination": "/api/index?__campus_path=/student"
+    },
+    {
+      "source": "/admin",
+      "destination": "/api/index?__campus_path=/admin"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "/api/index?__campus_path=/api/:path*"
+    },
+    {
+      "source": "/auth/:path*",
+      "destination": "/api/index?__campus_path=/auth/:path*"
+    },
+    {
+      "source": "/node_modules/pdfjs-dist/:path*",
+      "destination": "/api/index?__campus_path=/node_modules/pdfjs-dist/:path*"
+    }
+  ]
+}

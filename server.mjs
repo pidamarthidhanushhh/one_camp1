@@ -96,10 +96,19 @@ function respondJson(response, status, body, extraHeaders = {}) {
   response.end(JSON.stringify(body));
 }
 
-function unavailableAiMessage(feature, configuredMessage) {
+function isPresentationDemo() {
   return process.env.NODE_ENV === "demo"
+    || process.env.CAMPUS_PRESENTATION_MODE === "true";
+}
+
+function unavailableAiMessage(feature, configuredMessage) {
+  return isPresentationDemo()
     ? `${feature} is turned off in this presentation demo.`
     : configuredMessage;
+}
+
+function getConfiguredApiKey(getApiKey) {
+  return isPresentationDemo() ? undefined : getApiKey();
 }
 
 function readJson(request) {
@@ -197,7 +206,7 @@ async function analyzePdf(request, response, { fetchGemini, getApiKey, requestCo
     return;
   }
 
-  const apiKey = getApiKey();
+  const apiKey = getConfiguredApiKey(getApiKey);
   if (!apiKey) {
     respondJson(response, 503, { error: unavailableAiMessage("PDF analysis", "PDF analysis is not configured. Set GEMINI_API_KEY on the server.") });
     return;
@@ -322,7 +331,7 @@ async function chatWithRaze(request, response, { fetchGemini, getApiKey, request
     return;
   }
 
-  const apiKey = getApiKey();
+  const apiKey = getConfiguredApiKey(getApiKey);
   if (!apiKey) {
     respondJson(response, 503, { error: unavailableAiMessage("Raze", "Raze is not configured. Set GEMINI_API_KEY on the server.") });
     return;
@@ -502,7 +511,7 @@ async function generateStudySummary(request, response, { fetchGemini, getApiKey,
     return;
   }
 
-  const apiKey = getApiKey();
+  const apiKey = getConfiguredApiKey(getApiKey);
   if (!apiKey) {
     respondJson(response, 503, { error: unavailableAiMessage("AI summaries", "AI summaries are not configured. Set GEMINI_API_KEY on the server.") });
     return;
@@ -655,7 +664,7 @@ async function generateStudyTools(request, response, { fetchGemini, getApiKey, r
     return;
   }
 
-  const apiKey = getApiKey();
+  const apiKey = getConfiguredApiKey(getApiKey);
   if (!apiKey) {
     respondJson(response, 503, { error: unavailableAiMessage("AI practice tools", "AI practice tools are not configured. Set GEMINI_API_KEY on the server.") });
     return;

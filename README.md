@@ -2,6 +2,12 @@
 
 Start the app with Node.js 22.13 or newer in the 22.x line, or Node.js 24 or newer. The PDF renderer does not support Node.js 23.
 
+## Vercel presentation deployment
+
+Import this repository into Vercel with the **Other** framework preset and the repository root as the project root. Keep the default npm install command and leave Build Command and Output Directory empty. Vercel routes `/student`, `/admin`, API/auth endpoints, and PDF.js assets through the Node.js function configured in `vercel.json`.
+
+This setup is a browser-local presentation demo, not a production campus service. AI generation is disabled, learning data is not shared across visitors, and persistent database/OIDC document routes are not configured for production use.
+
 1. Copy `.env.example` to `.env` and set `GEMINI_API_KEY` to a newly created Gemini key.
 2. Keep `.env` private; it is ignored by Git and the key is only read by the server. Revoke any key shared in chat and use a newly generated key.
 3. Run `npm start` and open `http://localhost:3000`.

@@ -1,4 +1,6 @@
 import assert from "node:assert/strict";
+import { createServer as createHttpServer } from "node:http";
+import { createVercelHandler } from "./api/index.mjs";
 import { after, before, test } from "node:test";
 import { assertProductionConfiguration, createServer } from "./server.mjs";
 
@@ -92,6 +94,34 @@ test("serves standalone role workspaces without the login page", async () => {
     assert.match(html, new RegExp(`data-workspace-page="${pathname.slice(1)}"`));
     assert.match(html, /id="app-shell">/);
     assert.doesNotMatch(html, /id="login-page"/);
+  }
+});
+
+test("Vercel handler serves rewritten workspaces, API routes, and PDF.js assets", async () => {
+  const previousPresentationMode = process.env.CAMPUS_PRESENTATION_MODE;
+  const vercelServer = createHttpServer(createVercelHandler(createServer()));
+  await new Promise((resolve) => vercelServer.listen(0, "127.0.0.1", resolve));
+  try {
+    const baseUrl = `http://127.0.0.1:${vercelServer.address().port}/api/index?__campus_path=`;
+    const workspace = await fetch(`${baseUrl}%2Fstudent`);
+    assert.equal(workspace.status, 200);
+    assert.match(await workspace.text(), /data-workspace-page="student"/);
+
+    const chat = await fetch(`${baseUrl}%2Fapi%2Fchat`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ messages: [{ role: "user", text: "Hello" }] }),
+    });
+    assert.equal(chat.status, 503);
+    assert.match((await chat.json()).error, /turned off in this presentation demo/);
+
+    const renderer = await fetch(`${baseUrl}%2Fnode_modules%2Fpdfjs-dist%2Fbuild%2Fpdf.mjs`);
+    assert.equal(renderer.status, 200);
+    assert.match(renderer.headers.get("content-type"), /^text\/javascript/);
+  } finally {
+    await new Promise((resolve, reject) => vercelServer.close((error) => error ? reject(error) : resolve()));
+    if (previousPresentationMode === undefined) delete process.env.CAMPUS_PRESENTATION_MODE;
+    else process.env.CAMPUS_PRESENTATION_MODE = previousPresentationMode;
   }
 });
 
